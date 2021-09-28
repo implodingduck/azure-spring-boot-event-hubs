@@ -41,3 +41,35 @@ resource "random_string" "unique" {
   special = false
   upper   = false
 }
+
+resource "azurerm_eventhub_namespace" "ns" {
+  name                     = "ns-sb-eh-${random_string.unique.result}"
+  resource_group_name      = azurerm_resource_group.rg.name
+  location                 = azurerm_resource_group.rg.location
+  sku                      = "Standard"
+  capacity                 = 1
+  auto_inflate_enabled     = true
+  maximum_throughput_units = 20
+
+  tags = {
+    managed_by = "terraform"
+  }
+}
+
+# Consumer topic
+
+resource "azurerm_eventhub" "topic" {
+  name                = "topic-sb-eh-${random_string.unique.result}"
+  namespace_name      = azurerm_eventhub_namespace.ns.name
+  resource_group_name = azurerm_eventhub_namespace.ns.resource_group_name
+  partition_count     = 2
+  message_retention   = 7
+}
+
+resource "azurerm_eventhub_consumer_group" "cg" {
+  name                = "cg-sb-eh-${random_string.unique.result}"
+  namespace_name      = azurerm_eventhub_namespace.ns.name
+  eventhub_name       = azurerm_eventhub.topic.name
+  resource_group_name = azurerm_eventhub_namespace.ns.resource_group_name
+}
+
