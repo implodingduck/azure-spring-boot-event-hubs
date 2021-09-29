@@ -63,7 +63,7 @@ resource "azurerm_eventhub" "topic" {
   namespace_name      = azurerm_eventhub_namespace.ns.name
   resource_group_name = azurerm_eventhub_namespace.ns.resource_group_name
   partition_count     = 2
-  message_retention   = 7
+  message_retention   = 1
 }
 
 resource "azurerm_eventhub_consumer_group" "cg" {
