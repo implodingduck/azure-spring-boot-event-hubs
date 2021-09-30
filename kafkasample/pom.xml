@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.implodingduck</groupId>
-	<artifactId>eventhubsample</artifactId>
+	<artifactId>kafkasample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eventhubsample</name>
-	<description>Demo project for Spring Boot talking to eventhub</description>
+	<name>kafkasample</name>
+	<description>Demo project for Spring Boot talking to eventhub with kafka</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -27,19 +27,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.azure.spring</groupId>
 			<artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
 			<version>2.8.0</version>
-		</dependency> -->
-		<!-- <dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
-		</dependency> -->
+			<version>2.7.2</version>
+		</dependency>
 		<dependency>
-			<groupId>com.azure.spring</groupId>
-			<artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-			<version>2.8.0</version>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-client-authentication</artifactId>
+			<version>1.6.15</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 

@@ -19,4 +19,6 @@ curl -v -H "Content-Type: application/json" -X POST -d '{"message": "hello world
 ## Resources:
 * https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
 * https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform
-
+* https://github.com/eugenp/tutorials/tree/master/spring-kafka
+* https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity
+* https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
