@@ -4,6 +4,14 @@
 az ad sp create-for-rbac --name spring-boot-event-hubs
 ```
 
+
+## Terraform
+This sets up the event hub infrastructure and also the storage account to be used as a checkpointer
+```
+cd terraform
+./env_setup.sh
+terraform apply
+```
 ## Running and Testing
 
 Start:
@@ -17,6 +25,8 @@ curl -v -H "Content-Type: application/json" -X POST -d '{"message": "hello world
 ```
 
 ## Resources:
+* https://docs.microsoft.com/en-us/azure/event-hubs/
+* https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview
 * https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
 * https://github.com/Azure-Samples/keda-eventhub-kafka-scaler-terraform
 * https://github.com/eugenp/tutorials/tree/master/spring-kafka
