@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    azure:
+      client-id: # service principal client id
+      client-secret: # service principal client secret
+      tenant-id: # service principal tenant id
+      resource-group: rg-springboot-eventhubs-########
+      subscription-id: # subscription id with event hub
+      eventhub:
+        namespace: ns-sb-eh-########
+
+  kafka:
+    bootstrap-servers: ns-sb-eh-########.servicebus.windows.net:9093
+    jaas:
+      enabled: true
+      login-module: org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule
+      control-flag: required
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+kafka:
+  topic:
+    name: topic-sb-eh-########
+    

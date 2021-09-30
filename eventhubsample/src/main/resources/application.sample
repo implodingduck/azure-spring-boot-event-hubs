@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    azure:
+      client-id: # service principal client id
+      client-secret: # service principal client secret
+      tenant-id: # service principal tenant id
+      resource-group: rg-springboot-eventhubs-########
+      subscription-id: # subscription id with event hub
+      eventhub:
+        namespace: ns-sb-eh-########
+        checkpoint-storage-account: sasbeh########
+        checkpoint-container: checkpoint
+    stream:
+      function:
+        definition: consume;supply
+      bindings:
+        consume-in-0:
+          destination: topic-sb-eh-########
+          group: cg-sb-eh-########
+        supply-out-0:
+          destination: topic-sb-eh-#######
+      
